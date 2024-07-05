@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dagoberto\\source\\repos\\InventarioWasm\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BE4E56E1-0634-46AC-A6C2-831ECCB507B0}|InventarioWasm.csproj|c:\\users\\dagoberto\\source\\repos\\inventariowasm\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE4E56E1-0634-46AC-A6C2-831ECCB507B0}|InventarioWasm.csproj|solutionrelative:pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE4E56E1-0634-46AC-A6C2-831ECCB507B0}|InventarioWasm.csproj|c:\\users\\dagoberto\\source\\repos\\inventariowasm\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE4E56E1-0634-46AC-A6C2-831ECCB507B0}|InventarioWasm.csproj|solutionrelative:models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Weather.razor",
+              "DocumentMoniker": "C:\\Users\\Dagoberto\\source\\repos\\InventarioWasm\\Pages\\Weather.razor",
+              "RelativeDocumentMoniker": "Pages\\Weather.razor",
+              "ToolTip": "C:\\Users\\Dagoberto\\source\\repos\\InventarioWasm\\Pages\\Weather.razor",
+              "RelativeToolTip": "Pages\\Weather.razor",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAEcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T02:06:20.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\Dagoberto\\source\\repos\\InventarioWasm\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\Dagoberto\\source\\repos\\InventarioWasm\\Models\\Producto.cs",
+              "RelativeToolTip": "Models\\Producto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T01:59:46.277Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+﻿@page "/weather"
+@using InventarioWasm.Models
+@inject HttpClient Http
+
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Valor</th>         
+                <th>Seleccionar</th>         
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producto in Productos)
+            {
+                <tr>
+                    <td>@producto.Nombre</td>
+                    <td>@producto.Valor</td>   
+                    <td>
+                        <button @onclick="()=>AsignarProducto(producto)" class="btn btn-outline-secondary">Seleccionar</button>
+                    </td>   
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<hr />
+<label>Nombre</label>
+<input type="text" @bind-value=producto.Nombre class="form-control" />
+<label>Valor</label>
+<input type="text" @bind-value=producto.Valor class="form-control" />
+<button class="btn btn-outline-success" @onclick=Guardar>Guardar</button>
+<button class="btn btn-outline-success" @onclick=Editar>Actualizar</button>
+<button class="btn btn-outline-success" @onclick=Eliminar>Eliminar</button>
+<br />
+<label>@Respuesta</label>
+@code {
+    private WeatherForecast[]? forecasts;
+
+    Producto producto = new Producto();
+    public static List<Producto> Productos = new List<Producto>();
+
+    string Respuesta = "En proceso...";
+    async Task Guardar()
+    {
+        producto.Id = 0;
+        var respuestajson = await Http.PostAsJsonAsync("https://localhost:7091/api/Producto/Crear", producto);
+        Respuesta = await respuestajson.Content.ReadAsStringAsync();
+        await ObtenerProductos();
+    }
+
+    async Task ObtenerProductos()
+    {
+        var respuestaproducto = await Http.GetFromJsonAsync<List<Producto>>("https://localhost:7091/api/Producto/Listado");
+        Productos = respuestaproducto;
+    }
+
+    async Task AsignarProducto(Producto objeto)
+    {
+        producto = objeto;
+    }
+
+    async Task Editar()
+    {
+        var respuesta = await Http.PutAsJsonAsync($"https://localhost:7091/api/Producto/Actualizar/{producto.Id}", producto);
+        await ObtenerProductos();
+    }
+
+    async Task Eliminar()
+    {
+        var respuesta = await Http.DeleteAsync($"https://localhost:7091/api/Producto/Eliminar/{producto.Id}");
+        await ObtenerProductos();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await ObtenerProductos();
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+    }
+
+    public class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string? Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}
